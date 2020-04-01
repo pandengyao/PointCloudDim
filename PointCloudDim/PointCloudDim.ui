@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PointCloudDimClass</class>
+ <widget class="QMainWindow" name="PointCloudDimClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1264</width>
+    <height>755</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>点云尺寸自动测量</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QWidget" name="widget_3" native="true">
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QWidget" name="widget" native="true">
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QVTKWidget" name="qvtkWidgetSource"/>
+          </item>
+          <item row="0" column="1">
+           <widget class="QVTKWidget" name="qvtkWidgetTarget"/>
+          </item>
+          <item row="0" column="2">
+           <widget class="QVTKWidget" name="qvtkWidgetUnRegistered"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QWidget" name="widget_2" native="true">
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="1">
+           <widget class="QVTKWidget" name="qvtkWidgetDimInfo"/>
+          </item>
+          <item row="0" column="0">
+           <widget class="QVTKWidget" name="qvtkWidgetRegistered"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget_4" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>计算FPFH及配准</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="2" column="4">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>VoxelGrid滤波器体素</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QDoubleSpinBox" name="doubleSpinBoxVoxelGrid">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>计算法线半径</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QDoubleSpinBox" name="doubleSpinBoxNormalRadius">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>计算FPFH半径</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QDoubleSpinBox" name="doubleSpinBoxFPFHRadius"/>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="pushButtonFPFHCalculate">
+            <property name="text">
+             <string>计算</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="3">
+           <widget class="QPushButton" name="pushButtonRegister">
+            <property name="text">
+             <string>配准</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="0">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>尺寸测量</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_7">
+          <item row="4" column="0">
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="3" rowspan="2">
+           <widget class="QDoubleSpinBox" name="doubleSpinBoxCylinder">
+            <property name="singleStep">
+             <double>0.050000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="3" rowspan="2">
+           <widget class="QSpinBox" name="spinBoxkSearch"/>
+          </item>
+          <item row="0" column="3">
+           <widget class="QDoubleSpinBox" name="doubleSpinBoxPlane">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="singleStep">
+             <double>0.050000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QPushButton" name="pushButtonDim">
+            <property name="text">
+             <string>尺寸测量</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="3" rowspan="2">
+           <widget class="QDoubleSpinBox" name="doubleSpinBoxNormalWeight">
+            <property name="singleStep">
+             <double>0.050000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="3">
+           <widget class="QPushButton" name="pushButtonOutput">
+            <property name="text">
+             <string>结果导出</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="4">
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="2">
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>平面提取gap</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="3">
+           <widget class="QSpinBox" name="spinBoxMaxIterations">
+            <property name="maximum">
+             <number>100000</number>
+            </property>
+            <property name="singleStep">
+             <number>50</number>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>近邻点个数</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>圆柱面提取gap     </string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>最大迭代次数</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>法线权重</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>测量结果及误差</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QTableWidget" name="tableWidget"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>处理状态显示</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="0" column="0">
+           <widget class="QTextBrowser" name="textBrowser"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1264</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="actionImportSource"/>
+    <addaction name="actionImportTarget"/>
+    <addaction name="separator"/>
+    <addaction name="action_change_dir"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="actionHelp"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>窗口</string>
+    </property>
+    <addaction name="actionMaximized"/>
+    <addaction name="actionMinimized"/>
+    <addaction name="actionNormal"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>编辑</string>
+    </property>
+    <addaction name="actionFPFHCalculate"/>
+    <addaction name="actionRegister"/>
+    <addaction name="actionDim"/>
+    <addaction name="actionOutput"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_4"/>
+   <addaction name="menu_3"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionImportSource">
+   <property name="text">
+    <string>导入源点云</string>
+   </property>
+  </action>
+  <action name="actionImportTarget">
+   <property name="text">
+    <string>导入目标点云</string>
+   </property>
+  </action>
+  <action name="actionDimInfo">
+   <property name="text">
+    <string>导入尺寸信息</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>关闭</string>
+   </property>
+  </action>
+  <action name="actiond_5">
+   <property name="text">
+    <string>d</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>使用说明</string>
+   </property>
+  </action>
+  <action name="actionFPFHCalculate">
+   <property name="text">
+    <string>计算FPFH</string>
+   </property>
+  </action>
+  <action name="actionRegister">
+   <property name="text">
+    <string>配准</string>
+   </property>
+  </action>
+  <action name="actionDim">
+   <property name="text">
+    <string>尺寸测量</string>
+   </property>
+  </action>
+  <action name="actionOutput">
+   <property name="text">
+    <string>结果导出</string>
+   </property>
+  </action>
+  <action name="actionMaximized">
+   <property name="text">
+    <string>最大化</string>
+   </property>
+  </action>
+  <action name="actionMinimized">
+   <property name="text">
+    <string>最小化</string>
+   </property>
+  </action>
+  <action name="actionImportCAD">
+   <property name="text">
+    <string>导入CAD模型</string>
+   </property>
+  </action>
+  <action name="actionNormal">
+   <property name="text">
+    <string>还原</string>
+   </property>
+  </action>
+  <action name="actionSampling">
+   <property name="text">
+    <string>采样</string>
+   </property>
+  </action>
+  <action name="action_change_dir">
+   <property name="text">
+    <string>切换工作目录</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QVTKWidget</class>
+   <extends>QWidget</extends>
+   <header>QVTKWidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="PointCloudDim.qrc"/>
+ </resources>
+ <connections/>
+</ui>
